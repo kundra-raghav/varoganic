@@ -1,7 +1,7 @@
 import type { Product } from '@/types/product'
 
 const SITE_NAME = 'Varoganic Store'
-const SITE_URL = 'https://vorganic.shop'
+const SITE_URL = 'https://.shop'
 const DEFAULT_DESCRIPTION =
   'Organic, dermatologist-backed rituals from the Western Ghats. Discover cleansers, serums, and balms crafted for Indian skin.'
 const DEFAULT_OG_IMAGE =

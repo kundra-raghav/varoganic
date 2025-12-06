@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import { useEffect, useMemo, useState, type ReactElement } from 'react'
 
-import { AddToCartButton } from '@/components/commerce/AddToCartButton'
+// Temporarily commented out - customers shop on Flipkart
+// import { AddToCartButton } from '@/components/commerce/AddToCartButton'
 import { QuantityStepper } from '@/components/commerce/QuantityStepper'
 import { VariantSelector, type VariantOption } from '@/components/commerce/VariantSelector'
 import { SEO } from '@/components/layout/SEO'
@@ -708,54 +709,64 @@ export const ProductRoute = (): ReactElement => {
     images: galleryImages.map((image) => image.src),
   })
   const reducedMotion = useUIStore((state) => state.reducedMotion)
-  const personaCards = useMemo(
-    () => [
-      {
-        id: 'sunrise',
-        label: 'The Sunrise Ritualist',
-        signal: 'Loves aromatic mornings without dryness.',
-        promise: `Use ${product.name} at sunrise to wake skin gently, then seal moisture with a hydrating mist.`,
-      },
-      {
-        id: 'detox',
-        label: 'The Detox Seeker',
-        signal: 'Wants clear pores without acid sting.',
-        promise: 'Work it in for 60 seconds on damp skin. Botanicals lift build-up while minerals keep your barrier intact.',
-      },
-      {
-        id: 'sensitive',
-        label: 'The Sensitive Healer',
-        signal: 'Reads every label and avoids sulphates.',
-        promise: `${product.name} stays fragrance-free and calmed with botanicals, making it a sanctuary for reactive skin.`,
-      },
-    ],
-    [product.name],
-  )
+  const personaCards = useMemo(() => {
+    // Create benefit cards from product's actual goals/benefits
+    const benefits = product.goals && product.goals.length > 0
+      ? product.goals.slice(0, 3)
+      : ['Nourishes skin', 'Natural ingredients', 'Gentle daily use'];
+
+    return benefits.map((benefit, index) => ({
+      id: `benefit-${index}`,
+      label: benefit,
+      signal: product.details?.benefits?.[index] || `Perfect for ${benefit.toLowerCase()}`,
+      promise: product.details?.whyChoose?.[index] || `${product.name} helps with ${benefit.toLowerCase()}.`,
+    }));
+  }, [product.name, product.goals, product.details])
   const demandSignals = useMemo(() => {
-    const charSeed = product.id.charCodeAt(0)
-    const watchers = 240 + (charSeed % 40)
-    const batches = 18 + (product.id.length % 5)
-    return [
+    // Extract key product highlights
+    const keyIngredients = product.details?.keyIngredients?.slice(0, 3) || [];
+
+    const signals = [
       {
-        id: 'watching',
-        label: 'Rituals watching now',
-        figure: `${watchers.toString()} seekers`,
-        description: 'Shoppers currently tracking this micro-batch. We craft in small runs, so once it sells out the next pour is in 7 days.',
+        id: 'handmade',
+        label: '100% Handmade',
+        figure: 'Small Batches',
+        description: 'Carefully handcrafted with love and traditional methods. Each product is unique and made fresh.',
       },
-      {
-        id: 'batch',
-        label: 'Current micro-batch',
-        figure: `Batch ${batches.toString()} curing`,
-        description: 'Fresh blend has entered its 72-hour cure window. Reserve now to get a dispatch notification as soon as it seals.',
-      },
-      {
-        id: 'impact',
-        label: 'Impact with purchase',
-        figure: '1.4kg CO₂ offset',
-        description: 'Every order funds forest soil regeneration and replaces 3 plastic bottles through our refill program.',
-      },
-    ]
-  }, [product.id])
+    ];
+
+    // Add ingredient highlights if available
+    if (keyIngredients.length > 0) {
+      keyIngredients.forEach((ingredient, index) => {
+        if (index < 2) {
+          signals.push({
+            id: `ingredient-${index}`,
+            label: ingredient.name,
+            figure: 'Natural & Pure',
+            description: ingredient.benefits?.[0] || `Rich in natural goodness for your skin.`,
+          });
+        }
+      });
+    } else {
+      // Fallback if no ingredients data
+      signals.push(
+        {
+          id: 'natural',
+          label: 'Natural Ingredients',
+          figure: 'Chemical-Free',
+          description: 'No parabens, no sulfates. Only pure, natural ingredients from nature.',
+        },
+        {
+          id: 'ayurvedic',
+          label: 'Ayurvedic Formula',
+          figure: 'Traditional',
+          description: 'Time-tested recipes passed down through generations for healthy, glowing skin.',
+        }
+      );
+    }
+
+    return signals.slice(0, 3);
+  }, [product.details])
 
   useEffect(() => {
     view_item({
@@ -814,7 +825,8 @@ export const ProductRoute = (): ReactElement => {
             <div className="flex flex-wrap items-center gap-4">
               <QuantityStepper value={quantity} onChange={setQuantity} />
               <ButtonBuyNow product={product} quantity={quantity} variantId={selectedVariant?.id ?? undefined} className="flex-1" />
-              <AddToCartButton product={product} quantity={quantity} label="Add to cart" variantId={selectedVariant?.id ?? undefined} className="flex-shrink-0" variant="secondary" size="sm" />
+              {/* Temporarily commented out - customers shop on Flipkart */}
+              {/* <AddToCartButton product={product} quantity={quantity} label="Add to cart" variantId={selectedVariant?.id ?? undefined} className="flex-shrink-0" variant="secondary" size="sm" /> */}
             </div>
           </div>
           <DetailsTabs tabs={tabs} />
@@ -823,10 +835,10 @@ export const ProductRoute = (): ReactElement => {
       <PairWith products={relatedProducts.length ? relatedProducts : PRODUCTS.slice(0, 3)} lastViewedId={product.id} />
       <section className="rounded-3xl border border-lines bg-paper px-6 py-10 shadow-card md:px-10">
         <div className="space-y-3 text-center md:text-left">
-          <p className="text-xs font-semibold uppercase tracking-wide text-success">Micro-batch intel</p>
-          <h2 className="font-heading text-h3 text-ink">Secure your jar before the botanicals rest again</h2>
+          <p className="text-xs font-semibold uppercase tracking-wide text-success">What Makes This Special</p>
+          <h2 className="font-heading text-h3 text-ink">Handcrafted with Pure, Natural Ingredients</h2>
           <p className="text-sm text-muted">
-            Demand surges for our chemical-free pours. We disclose live batch stats so you can claim yours with clarity—not FOMO.
+            Discover what goes into each product - from handmade craftsmanship to the finest natural ingredients.
           </p>
         </div>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
@@ -849,10 +861,10 @@ export const ProductRoute = (): ReactElement => {
       </section>
       <section className="rounded-3xl border border-lines bg-paper px-6 py-10 shadow-card md:px-10">
         <div className="space-y-2 text-center md:text-left">
-          <p className="text-xs font-semibold uppercase tracking-wide text-success">Who this was formulated for</p>
-          <h2 className="font-heading text-h3 text-ink">See yourself in our community archetypes</h2>
+          <p className="text-xs font-semibold uppercase tracking-wide text-success">Key Benefits</p>
+          <h2 className="font-heading text-h3 text-ink">Why You'll Love This Product</h2>
           <p className="text-sm text-muted">
-            Whether you’re rebuilding a stressed barrier or chasing weekend radiance, there’s a ritual path designed precisely for you.
+            Real benefits from natural ingredients - see how this product can help transform your skin.
           </p>
         </div>
         <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -876,7 +888,8 @@ export const ProductRoute = (): ReactElement => {
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-lines bg-paper/95 px-4 py-3 shadow-card md:hidden">
         <div className="mx-auto flex w-full max-w-3xl items-center gap-3">
           <ButtonBuyNow product={product} quantity={quantity} variantId={selectedVariant?.id ?? undefined} className="flex-1" />
-          <AddToCartButton product={product} quantity={quantity} label="Add to cart" variantId={selectedVariant?.id ?? undefined} className="flex-shrink-0" variant="secondary" size="sm" />
+          {/* Temporarily commented out - customers shop on Flipkart */}
+          {/* <AddToCartButton product={product} quantity={quantity} label="Add to cart" variantId={selectedVariant?.id ?? undefined} className="flex-shrink-0" variant="secondary" size="sm" /> */}
         </div>
       </div>
     </div>

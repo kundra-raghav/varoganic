@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
-import { AddToCartButton } from '@/components/commerce/AddToCartButton'
+// Temporarily commented out - customers shop on Flipkart
+// import { AddToCartButton } from '@/components/commerce/AddToCartButton'
 import { Button } from '@/components/common/Button'
 import { Rating } from '@/components/common/Rating'
 import { ResponsiveImage } from '@/components/layout/ResponsiveImage'
@@ -73,7 +74,8 @@ export const ProductCard = ({ product, lastViewedId }: ProductCardProps): ReactE
           <span className="text-success">-{savingsPercent}%</span>
         </div>
         <div className="mt-auto flex items-center gap-3">
-          <AddToCartButton product={product} label="Add to cart" className="flex-1" />
+          {/* Temporarily commented out - customers shop on Flipkart */}
+          {/* <AddToCartButton product={product} label="Add to cart" className="flex-1" /> */}
           <Button
             variant="tertiary"
             size="sm"

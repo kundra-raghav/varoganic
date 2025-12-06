@@ -257,7 +257,7 @@ const AboutRouteComponent = (): ReactElement => {
             { label: 'Team', value: '32 makers & storytellers' },
           ]}
           media={{
-            src: 'https://vorganic.shop/Gemini3.png',
+            src: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=900&q=80',
             alt: 'Varoganic lab with botanicals and beakers',
           }}
         />

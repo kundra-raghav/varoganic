@@ -1,6 +1,7 @@
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion'
 import { Fragment, useMemo, useState, type ReactElement } from 'react'
 
+import botanicalHeroImage from '@/assets/Natural botanical ingredients and herbs.jpg'
 import { Accordion, AccordionItem } from '@/components/common/Accordion'
 import {
   AnimatedList,
@@ -15,108 +16,145 @@ import { SEO } from '@/components/layout/SEO'
 import { useReducedMotionSafe } from '@/hooks/useReducedMotionSafe'
 
 const heroStats: Array<Stat> = [
-  { label: 'Botanical library', value: '47 botanicals', description: 'Curated across Indian micro-climates.' },
-  { label: 'Clinical screening', value: '128 assays', description: 'Each ingredient undergoes in-vitro and in-vivo tests.' },
-  { label: 'Traceable partners', value: '22 farms', description: 'Regenerative agriculture partners with soil audits.' },
-  { label: 'Extraction styles', value: '6 methods', description: 'From cold-maceration to ultrasonic infusion.' },
+  { label: 'Natural Ingredients', value: '25+ Herbs', description: 'Sourced from across India\'s rich botanical heritage.' },
+  { label: 'Handmade Products', value: '100% Natural', description: 'Crafted with love, care, and traditional wisdom.' },
+  { label: 'Ayurvedic Recipes', value: 'Time-Tested', description: 'Ancient formulas passed down through generations.' },
+  { label: 'Chemical-Free', value: 'Pure & Safe', description: 'No parabens, sulfates, or artificial additives.' },
 ]
 
 const ingredients = [
   {
-    id: 'hibiscus',
-    name: 'Hibiscus Petal Bioferment',
-    origin: 'Shantiniketan, West Bengal',
-    profile: 'Alpha-hydroxy acids + plant peptides',
-    benefits: 'Speeds up cell renewal, boosts elasticity, softly resurfaces without abrasion.',
-    ritual: 'We ferment hibiscus petals for 48 hours with a lactobacillus starter, dropping the pH to 3.8—ideal for gentle exfoliation.',
+    id: 'rose',
+    name: 'Pure Rose Petals & Rose Oil',
+    origin: 'Sourced from Indian rose gardens',
+    profile: 'Natural antioxidants & aromatic oils',
+    benefits: 'Soothes skin, reduces redness, provides deep hydration, and leaves a fresh floral glow.',
+    ritual: 'We carefully handpick fresh rose petals and infuse them with nourishing rose oil, blending them into our soaps and mists to give your skin natural radiance and calmness.',
     color: 'text-rose-500',
   },
   {
     id: 'neem',
-    name: 'Neem Leaf CO2 Extract',
-    origin: 'Kerala biodiverse groves',
-    profile: 'Azadirachtin-rich essential oil',
-    benefits: 'Clarifies congested pores, soothes redness, supports microbiome balance.',
-    ritual: 'Our supercritical CO2 extraction isolates actives without solvents, keeping the oil lightweight and quick-absorbing.',
+    name: 'Neem Leaves & Neem Oil',
+    origin: 'Traditional Indian neem trees',
+    profile: 'Antibacterial & purifying properties',
+    benefits: 'Controls acne, fights bacteria, reduces inflammation, and deeply cleanses pores.',
+    ritual: 'Neem leaves are dried and ground, then combined with pure neem oil in our handmade soaps to create a powerful natural cleanser that purifies and protects your skin.',
     color: 'text-emerald-500',
   },
   {
+    id: 'kesar',
+    name: 'Kesar (Saffron) Threads',
+    origin: 'Premium Indian saffron fields',
+    profile: 'Brightening & anti-aging properties',
+    benefits: 'Brightens skin tone, reduces dark spots, fights signs of aging, and gives a natural glow.',
+    ritual: 'Pure saffron threads are carefully infused into our products, delivering the ancient beauty secret of Indian royalty for radiant, even-toned skin.',
+    color: 'text-orange-500',
+  },
+  {
     id: 'camel-milk',
-    name: 'Camel Milk Concentrate',
-    origin: 'Bikaner desert cooperatives',
-    profile: 'Phospholipids + lactic acid',
-    benefits: 'Deeply nourishes, supports barrier lipids, gently brightens.',
-    ritual: 'Freeze-dried within 4 hours of milking to lock nutrients, then reconstituted with botanical humectants in our lab.',
+    name: 'Pure Camel Milk',
+    origin: 'Rajasthan desert regions',
+    profile: 'Rich in vitamins & natural proteins',
+    benefits: 'Deeply moisturizes, nourishes dry skin, and promotes a soft, supple texture.',
+    ritual: 'Fresh camel milk is gently processed and blended into our handmade soaps, bringing you the traditional desert beauty secret for deeply hydrated, glowing skin.',
     color: 'text-amber-500',
   },
   {
-    id: 'saffron',
-    name: 'Kashmiri Saffron Threads',
-    origin: 'Pampore valley',
-    profile: 'Crocin, safranal, antioxidants',
-    benefits: 'Targets dullness, evens tone, delivers glow with a single drop.',
-    ritual: 'We infuse saffron in cold-pressed oils for 21 days, rotating vials daily for even saturation.',
-    color: 'text-orange-500',
+    id: 'chandan',
+    name: 'Chandan (Sandalwood)',
+    origin: 'Pure Indian sandalwood',
+    profile: 'Cooling & skin-soothing properties',
+    benefits: 'Calms irritation, reduces blemishes, evens skin tone, and provides a cooling effect.',
+    ritual: 'Traditional sandalwood powder is carefully ground and mixed into our soaps and face packs, offering you the timeless Ayurvedic remedy for clear, glowing skin.',
+    color: 'text-yellow-600',
+  },
+  {
+    id: 'honey',
+    name: 'Pure Natural Honey',
+    origin: 'Indian beekeepers',
+    profile: 'Antibacterial & moisturizing',
+    benefits: 'Locks in moisture, fights acne-causing bacteria, and leaves skin soft and supple.',
+    ritual: 'Raw honey is blended into our handmade soaps to provide natural hydration and antibacterial protection, giving your skin a healthy, radiant glow.',
+    color: 'text-amber-600',
   },
 ]
 
 const ingredientFocus = [
   {
-    id: 'barrier',
-    title: 'Barrier Rescue Complex',
+    id: 'hydrate',
+    title: 'Deep Hydration & Nourishment',
     description:
-      'Rose hydrosol, camel milk lipids, and ceramide-mimicking rice bran all work together to replenish the moisture barrier after sun exposure or active-heavy routines.',
-    pairings: ['Skin Hydrating Gel', 'Milky Kesar Soap'],
-  },
-  {
-    id: 'clarify',
-    title: 'Clarify & Reset Blend',
-    description:
-      'Neem, amba haldi, and green coffee extract tackle congestion while licorice keeps hyperpigmentation in check.',
-    pairings: ['Detan Soap', 'Whitening & Tightening Face Pack'],
+      'Rose water, hibiscus, sandalwood oil, vitamin C, almond oil, and 20+ herbal extracts work together to deeply hydrate, refresh, and nourish your skin naturally.',
+    pairings: ['Skin Hydrating Gel', 'Radiant Rose Water', 'Pure Glow Face Elixir'],
   },
   {
     id: 'brighten',
-    title: 'Radiance Accelerator',
+    title: 'Brightening & Glow',
     description:
-      'Saffron threads, rosehip oil, and vitamin C esters merge for an instantly lit-from-within glow.',
-    pairings: ['Pure Glow Face Elixir', 'Radiant Rose Water Mist'],
+      'Kesar (saffron), camel milk, vitamin E & C oils, sandalwood, and rose petals combine to brighten skin tone, reduce dark spots, and deliver a natural radiant glow.',
+    pairings: ['Kesar Milky Soap', 'Rose Soap', 'Face Pack & Scrub'],
+  },
+  {
+    id: 'purify',
+    title: 'Purifying & Clarifying',
+    description:
+      'Neem leaves, neem oil, tea tree oil, multani mitti, chandan, and amba haldi cleanse deeply, control acne, reduce tanning, and purify your skin for a clear complexion.',
+    pairings: ['Neem Soap', 'De-Tan Soap'],
+  },
+  {
+    id: 'repair',
+    title: 'Refreshing & Revitalizing',
+    description:
+      'Honey, lemon, olive oil, tea tree oil, and vitamin E refresh, brighten, and revitalize dull skin while providing natural antibacterial protection.',
+    pairings: ['Honey Lemon Soap'],
+  },
+  {
+    id: 'haircare',
+    title: 'Hair Nourishment & Growth',
+    description:
+      'Amla, shikakai, bhringraj, brahmi, jatamansi, neem, hibiscus, olive oil, almond oil, and 25+ herbs strengthen hair, control dandruff, reduce hair fall, and promote healthy growth.',
+    pairings: ['Varo Herbs Shampoo', 'Kesh Vaidya Hair Oil'],
   },
 ]
 
 const labProtocols = [
   {
-    value: 'coldbrew',
-    title: 'Cold-brew botanical extraction',
-    body: 'We steep petals and leaves at room temperature for 12-21 days with sonic agitation. This guards heat-sensitive compounds like crocin and flavonoids so they stay potent until application.',
+    value: 'handmade',
+    title: 'Handmade with Love & Care',
+    body: 'Every Varoganic product is carefully handcrafted in small batches using traditional methods. We take our time to ensure each soap, gel, and oil is made with attention to detail, preserving the natural goodness of every ingredient.',
   },
   {
-    value: 'biome',
-    title: 'Microbiome-safe preservation',
-    body: 'Our preservative system blends radish root ferment and gluconolactone to keep products fresh without disrupting your skin flora.',
+    value: 'natural',
+    title: '100% Natural & Chemical-Free',
+    body: 'We never use harsh chemicals, parabens, sulfates, or artificial additives in our products. Everything is made from pure, natural ingredients sourced directly from nature, ensuring your skin gets only the best.',
   },
   {
-    value: 'testing',
-    title: 'Clinical integrity testing',
-    body: 'Every ingredient lot is tested for heavy metals, pesticides, and microbiological safety before it can enter formulation. Certificates are logged on-chain for transparency.',
+    value: 'ayurvedic',
+    title: 'Ancient Ayurvedic Wisdom',
+    body: 'Our formulas are inspired by time-tested Ayurvedic recipes passed down through generations. We blend traditional herbal knowledge with modern skincare needs to bring you products that truly work in harmony with your skin.',
+  },
+  {
+    value: 'quality',
+    title: 'Quality You Can Trust',
+    body: 'Each batch is carefully prepared using premium ingredients. We believe in creating products that are safe, effective, and gentle on all skin types. Our commitment is to deliver natural beauty solutions you can trust.',
   },
 ]
 
 const fieldDiaries = [
   {
-    month: 'April',
-    headline: 'Desert bloom harvest',
-    copy: 'Camel milk cooperatives implemented water recycling units, cutting usage by 38% while improving milk nutrient density.',
+    month: 'Spring',
+    headline: 'Rose & Hibiscus Harvest',
+    copy: 'Fresh rose petals and hibiscus flowers are handpicked at dawn when their natural oils are most potent. These delicate botanicals are carefully dried and processed to preserve their soothing and brightening properties.',
   },
   {
-    month: 'July',
-    headline: 'Monsoon neem flush',
-    copy: 'Neem leaves picked at peak chlorophyll, flash dehydrated to preserve azadirachtin levels for the Clarify Stack.',
+    month: 'Monsoon',
+    headline: 'Neem & Herbal Collection',
+    copy: 'Neem leaves, amla, shikakai, and other Ayurvedic herbs are sourced during the monsoon season when they are at their nutritional peak. Traditional drying methods ensure all their natural benefits are retained.',
   },
   {
-    month: 'October',
-    headline: 'Saffron plucking at dawn',
-    copy: 'Our farmer collective hand-plucks stigmas within 90 minutes of bloom, then air-dries them on silk mesh for premium potency.',
+    month: 'Winter',
+    headline: 'Premium Saffron & Milk',
+    copy: 'Pure Kashmiri saffron threads and fresh camel milk are sourced from trusted suppliers. These precious ingredients bring age-old beauty secrets to your skincare routine, delivering radiant, nourished skin.',
   },
 ]
 
@@ -139,7 +177,7 @@ const IngredientCard = ({
       <p className={color}>Profile · {profile}</p>
       <p className="text-sm text-body">{benefits}</p>
       <div className="rounded-2xl border border-primary/20 bg-primary/10 p-4 text-xs text-primary shadow-inner">
-        <p className="font-semibold uppercase tracking-[0.4em] text-primary/70">Lab ritual</p>
+        <p className="font-semibold uppercase tracking-[0.4em] text-primary/70">How We Use It</p>
         <p className="mt-2 text-sm text-primary">{ritual}</p>
       </div>
     </article>
@@ -257,43 +295,43 @@ const IngredientsRouteComponent = (): ReactElement => {
   return (
     <Fragment>
       <SEO
-        title="Ingredient library — transparent botanicals"
-        description="Dive into Varoganic\'s ingredient lab: sourcing diaries, lab rituals, and interactive blends that show how each botanical transforms your skin."
+        title="Natural Ingredients — Pure Ayurvedic Botanicals"
+        description="Discover Varoganic's natural ingredients: handpicked herbs, traditional recipes, and pure botanicals that bring ancient beauty wisdom to your skincare routine."
         path="/ingredients"
       />
       <PageContainer>
         <PageHero
-          eyebrow="Ingredient lab"
-          title="From regenerative farms to your vanity"
-          description="Every extraction method, every farmer handshake, every lab note — documented so you know exactly what powers your ritual."
+          eyebrow="Our Natural Ingredients"
+          title="From Nature's Garden to Your Skin"
+          description="Every herb carefully selected, every ingredient thoughtfully sourced, every formula lovingly handmade — discover the pure, natural botanicals that power your Varoganic skincare ritual."
           actions={[
-            { label: 'Shop by concern', href: '/shop?concern=Hydration' },
-            { label: 'Download ingredient index', href: '#protocols', variant: 'secondary' },
+            { label: 'Shop All Products', href: '/shop' },
+            { label: 'Learn Our Process', href: '#protocols', variant: 'secondary' },
           ]}
           highlights={[
-            { label: 'Transparency report', value: 'Updated quarterly' },
-            { label: 'Clinical screenings', value: '128 assays' },
+            { label: 'Handmade Products', value: 'With Love & Care' },
+            { label: 'Natural Ingredients', value: '100% Pure' },
           ]}
           media={{
-            src: 'https://images.unsplash.com/photo-1542838686-73e7d57d07d8?auto=format&fit=crop&w=900&q=80',
-            alt: 'Botanical ingredients and lab glassware',
+            src: botanicalHeroImage,
+            alt: 'Natural botanical ingredients and herbs',
           }}
         />
 
         <AnimatedSection>
           <SectionHeader
-            eyebrow="Lab at a glance"
-            title="Potency without compromise"
-            description="We take the scenic route: longer extraction times, meticulous testing, and regeneratively grown botanicals so every drop feels intentional."
+            eyebrow="Why Varoganic"
+            title="Nature's Purity in Every Product"
+            description="We believe in the power of nature. Our handmade products combine traditional Ayurvedic wisdom with pure, natural ingredients to bring you skincare that truly cares."
           />
           <StatGrid stats={heroStats} />
         </AnimatedSection>
 
         <AnimatedSection>
           <SectionHeader
-            eyebrow="Hero botanicals"
-            title="Meet the ingredients in our bestselling rituals"
-            description="Swipe through the cards to see how each botanical is processed and why it earned a permanent spot on our lab bench."
+            eyebrow="Star Ingredients"
+            title="Meet the botanicals that power your glow"
+            description="Discover the natural herbs and ingredients we use in our handmade products. Each one is carefully selected for its unique benefits and time-tested effectiveness."
           />
           <AnimatedList items={ingredientList} renderItem={(ingredient) => <IngredientCard {...ingredient} />} />
         </AnimatedSection>
@@ -301,12 +339,12 @@ const IngredientsRouteComponent = (): ReactElement => {
         <AnimatedSection variant="split">
           <div className="space-y-6">
             <SectionHeader
-              eyebrow="Targeted blends"
-              title="Layered concentrates for specific skin moods"
-              description="Select a focus to reveal which ingredients choreograph the results."
+              eyebrow="Ingredient Benefits"
+              title="Targeted solutions for your skin needs"
+              description="Select a category to discover which natural ingredients work together to deliver specific skincare benefits."
             />
             <p className="text-sm text-body">
-              Built with TCM-meets-Ayurveda philosophy, our blends respect circadian rhythms and keep your microbiome happy.
+              Our Ayurvedic formulas combine multiple herbs and natural ingredients to create powerful, effective skincare solutions for every skin type and concern.
             </p>
           </div>
           <FocusSwitcher focuses={ingredientFocus} />
@@ -315,11 +353,11 @@ const IngredientsRouteComponent = (): ReactElement => {
         <div id="protocols">
           <AnimatedSection variant="frosted">
             <SectionHeader
-              eyebrow="Lab protocols"
-              title="How we preserve potency"
-              description="Open the accordions to understand the method behind each ritual."
+              eyebrow="Our Promise"
+              title="How we create our products"
+              description="Learn about our commitment to quality, purity, and traditional craftsmanship."
             />
-            <Accordion defaultValue="coldbrew">
+            <Accordion defaultValue="handmade">
               {labProtocols.map((protocol) => (
                 <AccordionItem key={protocol.value} value={protocol.value} title={protocol.title}>
                   {protocol.body}
@@ -331,9 +369,9 @@ const IngredientsRouteComponent = (): ReactElement => {
 
         <AnimatedSection>
           <SectionHeader
-            eyebrow="Field diaries"
-            title="Snapshots from our sourcing journeys"
-            description="Seasonal updates direct from our farmer partners."
+            eyebrow="Seasonal Sourcing"
+            title="Fresh ingredients, harvested with care"
+            description="We source our botanicals seasonally to ensure maximum freshness and potency."
           />
           <div className="grid gap-4 md:grid-cols-3">
             {fieldDiaries.map((diary) => (

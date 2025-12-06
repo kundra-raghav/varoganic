@@ -1768,7 +1768,7 @@ const pages: Record<string, PageDefinition> = {
         src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80',
         alt: 'Customer support team helping over chat',
       },
-      actions: [{ label: 'Chat with us', href: 'https://wa.me/917888654495' }],
+      actions: [{ label: 'Chat with us', href: 'https://wa.me/919999998888' }],
       highlights: [
         { label: 'Average reply time', value: '15 minutes' },
         { label: 'Service hours', value: '9 AM – 9 PM IST' },

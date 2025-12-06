@@ -43,7 +43,7 @@ const milestones = [
   {
     year: '2018',
     heading: 'Kitchen experiments in Udaipur',
-    copy: 'Founder Vandana began brewing her grandmother’s ubtan recipes with modern actives for friends battling post-acne scars.',
+    copy: 'Founder Vani began brewing her grandmother’s ubtan recipes with modern actives for friends battling post-acne scars.',
   },
   {
     year: '2020',
@@ -81,11 +81,11 @@ const advisoryTeam = [
 ]
 
 const founderNote = {
-  name: 'Vandana Kundra',
+  name: 'Vand Kundra',
   role: 'Founder & Formulator-in-chief',
   message:
     '“Varoganic was born from blending my nani’s ritual teas with my chemist training. We obsess over details — the way your skin smells after the mist, how a bar lathers in hard water, whether a serum layers under makeup in Mumbai humidity. It’s beauty that respects the pace of your life.”',
-  image: 'https://vorganic.shop/Gemini2.png',
+  image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80',
 }
 
 const communityHighlights = [
@@ -257,7 +257,7 @@ const AboutRouteComponent = (): ReactElement => {
             { label: 'Team', value: '32 makers & storytellers' },
           ]}
           media={{
-            src: 'https://vorganic.shop/Gemini3.png',
+            src: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=900&q=80',
             alt: 'Varoganic lab with botanicals and beakers',
           }}
         />

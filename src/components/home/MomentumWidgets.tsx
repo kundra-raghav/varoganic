@@ -6,28 +6,28 @@ import { useUIStore } from '@/store/ui'
 
 const baseWidgets = [
   {
-    id: 'scarcity',
-    kicker: 'Micro-batch tracker',
-    headline: 'Today’s rose soaps curing right now',
-    metric: '42 trays left',
-    body: 'Hand-poured rose bars cure for 48 hours, then head straight to dispatch. Reserve yours before this micro-batch closes.',
-    action: { label: 'Reserve my bar', href: '/shop?category=Soap' },
+    id: 'handmade',
+    kicker: 'Handcrafted with Love',
+    headline: 'Made fresh in small batches',
+    metric: '100% Handmade',
+    body: 'Each soap and product is handcrafted with care, using traditional methods passed down through generations.',
+    action: { label: 'Shop Soaps', href: '/shop?category=Soap' },
   },
   {
-    id: 'social-proof',
-    kicker: 'Community glow meter',
-    headline: '9 of 10 seekers felt calmer skin in 14 days',
-    metric: '4,328 glow diaries',
-    body: 'Every review is dermatologist-verified and photo-free, so the calm you see is the calm you get.',
-    action: { label: 'Read diaries', href: '/shop?concern=Hydration' },
+    id: 'natural',
+    kicker: 'Pure & Natural',
+    headline: 'No chemicals, no compromise',
+    metric: 'Zero Parabens & Sulfates',
+    body: 'Only natural ingredients from India\'s rich botanical heritage. No harsh chemicals, just pure goodness for your skin.',
+    action: { label: 'See Ingredients', href: '/ingredients' },
   },
   {
-    id: 'purity',
-    kicker: 'Ingredient integrity',
-    headline: '0% parabens, 0% phthalates, 100% traceable botanicals',
-    metric: 'Lab reports live',
-    body: 'Tap into sourcing stories and lab certificates for every ingredient—pure, traceable, and planet kind.',
-    action: { label: 'Explore sourcing', href: '/shop?concern=Soft%20Skin' },
+    id: 'results',
+    kicker: 'Proven Results',
+    headline: 'Feel the difference in days',
+    metric: '1000+ Happy Customers',
+    body: 'Join thousands who\'ve experienced softer, glowing skin with our Ayurvedic formulas. Real ingredients, real results.',
+    action: { label: 'Shop Now', href: '/shop' },
   },
 ] as const
 
@@ -41,10 +41,10 @@ export const MomentumWidgets = (): ReactElement => {
   return (
     <section className="space-y-6">
       <div className="space-y-2 text-center md:text-left">
-        <p className="text-xs font-semibold uppercase tracking-wide text-success">Why rituals sell out</p>
-        <h2 className="font-heading text-h3 text-ink">Psychology-backed nudges that keep your cart committed</h2>
+        <p className="text-xs font-semibold uppercase tracking-wide text-success">Why Choose Varoganic</p>
+        <h2 className="font-heading text-h3 text-ink">Nature's Goodness, Handcrafted for You</h2>
         <p className="text-sm text-muted">
-          We combine honest scarcity, community-backed proof, and ingredient transparency so you never second-guess checking out.
+          Discover what makes our products special - pure ingredients, traditional craftsmanship, and real results.
         </p>
       </div>
       <div className="grid gap-5 md:grid-cols-3">

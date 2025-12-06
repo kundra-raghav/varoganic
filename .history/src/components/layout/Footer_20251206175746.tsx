@@ -216,7 +216,7 @@ export const Footer = (): ReactElement => {
               ))}
             </div>
             <a
-              href="https://wa.me/917888654495"
+              href="https://wa.me/917888"
               className="inline-flex items-center gap-2 rounded-full border border-primary px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
             >
               <WhatsAppIcon className="size-5" aria-hidden="true" />

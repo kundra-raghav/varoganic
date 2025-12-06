@@ -6,11 +6,12 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 
 import { Button } from '@/components/common/Button'
-import { add_to_cart } from '@/lib/analytics'
+// Temporarily commented out - customers shop on Flipkart
+// import { add_to_cart } from '@/lib/analytics'
 import { cn } from '@/lib/cn'
-import { notifyAddToCart } from '@/lib/toasts'
-import { useCartStore } from '@/store/cart'
-import { useUIStore } from '@/store/ui'
+// import { notifyAddToCart } from '@/lib/toasts'
+// import { useCartStore } from '@/store/cart'
+// import { useUIStore } from '@/store/ui'
 
 import type { Product } from '@/types/product'
 import type { ReactElement } from 'react'
@@ -29,19 +30,21 @@ export type AddToCartButtonProps = {
  * Add-to-cart trigger integrating with cart slice.
  */
 export const AddToCartButton = ({
-  product,
-  quantity = 1,
+  product: _product,
+  quantity: _quantity = 1,
   label = 'Add to cart',
-  variantId,
+  variantId: _variantId,
   className,
   variant = 'primary',
   size = 'md',
 }: AddToCartButtonProps): ReactElement => {
-  const [isAdding, setIsAdding] = useState(false)
-  const [showSparkle, setShowSparkle] = useState(false)
-  const addItem = useCartStore((state) => state.addItem)
-  const openMiniCart = useUIStore((state) => state.openMiniCart)
-  const reducedMotion = useUIStore((state) => state.reducedMotion)
+  const [isAdding] = useState(false)
+  const [showSparkle] = useState(false)
+  // Temporarily commented out - customers shop on Flipkart
+  // const addItem = useCartStore((state) => state.addItem)
+  // const openMiniCart = useUIStore((state) => state.openMiniCart)
+  // const reducedMotion = useUIStore((state) => state.reducedMotion)
+  const reducedMotion = false
   const timeouts = useRef<Array<number>>([])
 
   useEffect(() => {
@@ -53,16 +56,19 @@ export const AddToCartButton = ({
     }
   }, [])
 
-  const schedule = (callback: () => void, delay: number): void => {
-    const id = window.setTimeout(() => {
-      callback()
-      timeouts.current = timeouts.current.filter((storedId) => storedId !== id)
-    }, delay)
-    timeouts.current.push(id)
-  }
+  // Temporarily commented out - customers shop on Flipkart
+  // const schedule = (callback: () => void, delay: number): void => {
+  //   const id = window.setTimeout(() => {
+  //     callback()
+  //     timeouts.current = timeouts.current.filter((storedId) => storedId !== id)
+  //   }, delay)
+  //   timeouts.current.push(id)
+  // }
 
   const handleClick = (): void => {
-    if (isAdding) {
+    // Temporarily disabled - customers shop on Flipkart
+    // Cart functionality commented out
+    /* if (isAdding) {
       return
     }
 
@@ -91,7 +97,7 @@ export const AddToCartButton = ({
       }, 220)
     } else {
       setIsAdding(false)
-    }
+    } */
   }
 
   return (

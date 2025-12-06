@@ -41,30 +41,31 @@ const SearchIcon = ({ className }: IconProps): ReactElement => (
   </svg>
 )
 
-const CartIcon = ({ className }: IconProps): ReactElement => (
-  <svg viewBox="0 0 24 24" fill="none" className={cn(iconProps, className)}>
-    <path
-      d="M4 6h2l2.6 9.7a1 1 0 0 0 .97.73H17a1 1 0 0 0 .98-.804L19 9H7"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <circle cx="10" cy="20" r="1" fill="currentColor" />
-    <circle cx="17" cy="20" r="1" fill="currentColor" />
-  </svg>
-)
+// Temporarily commented out - customers shop on Flipkart
+// const CartIcon = ({ className }: IconProps): ReactElement => (
+//   <svg viewBox="0 0 24 24" fill="none" className={cn(iconProps, className)}>
+//     <path
+//       d="M4 6h2l2.6 9.7a1 1 0 0 0 .97.73H17a1 1 0 0 0 .98-.804L19 9H7"
+//       stroke="currentColor"
+//       strokeWidth="1.5"
+//       strokeLinecap="round"
+//       strokeLinejoin="round"
+//     />
+//     <circle cx="10" cy="20" r="1" fill="currentColor" />
+//     <circle cx="17" cy="20" r="1" fill="currentColor" />
+//   </svg>
+// )
 
-const UserIcon = ({ className }: IconProps): ReactElement => (
-  <svg viewBox="0 0 24 24" fill="none" className={cn(iconProps, className)}>
-    <path
-      d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-4.2 0-7 1.9-7 4v1h14v-1c0-2.12-2.8-4-7-4Z"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinejoin="round"
-    />
-  </svg>
-)
+// const UserIcon = ({ className }: IconProps): ReactElement => (
+//   <svg viewBox="0 0 24 24" fill="none" className={cn(iconProps, className)}>
+//     <path
+//       d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-4.2 0-7 1.9-7 4v1h14v-1c0-2.12-2.8-4-7-4Z"
+//       stroke="currentColor"
+//       strokeWidth="1.5"
+//       strokeLinejoin="round"
+//     />
+//   </svg>
+// )
 
 const MoreIcon = ({ className }: IconProps): ReactElement => (
   <svg viewBox="0 0 24 24" fill="none" className={cn(iconProps, className)}>
@@ -80,10 +81,13 @@ const NAV_ITEMS = [
   { label: 'Home', href: '/', icon: HomeIcon },
   { label: 'Shop', href: '/shop', icon: ShopIcon },
   { label: 'Search', href: '#search', icon: SearchIcon },
-  { label: 'Cart', href: '/cart', icon: CartIcon, badge: 2 },
+  // Temporarily commented out - customers shop on Flipkart
+  // { label: 'Cart', href: '/cart', icon: CartIcon, badge: 2 },
 ]
 
-const OVERFLOW_ITEMS = [{ label: 'Profile', href: '/account', icon: UserIcon }]
+// Temporarily commented out - customers shop on Flipkart
+// const OVERFLOW_ITEMS = [{ label: 'Profile', href: '/account', icon: UserIcon }]
+const OVERFLOW_ITEMS: Array<{ label: string; href: string; icon: (props: IconProps) => ReactElement }> = []
 
 /**
  * Mobile bottom navigation bar with overflow menu for profile.
@@ -116,7 +120,7 @@ export const MobileBottomNav = (): ReactElement => {
       className="fixed inset-x-0 bottom-0 z-40 border-t border-lines bg-paper/95 backdrop-blur-md md:hidden"
     >
       <div className="mx-auto flex max-w-xl items-center justify-between px-6 py-2">
-        {NAV_ITEMS.map(({ label, href, icon: Icon, badge }) => (
+        {NAV_ITEMS.map(({ label, href, icon: Icon }) => (
           <a
             key={label}
             href={href}
@@ -124,11 +128,6 @@ export const MobileBottomNav = (): ReactElement => {
           >
             <Icon className="size-6" aria-hidden="true" />
             <span>{label}</span>
-            {badge ? (
-              <span className="absolute -right-1 top-1 inline-flex min-w-5 justify-center rounded-full bg-primary text-[10px] font-semibold text-primary-foreground">
-                {badge}
-              </span>
-            ) : null}
           </a>
         ))}
         <div className="relative" ref={overflowRef}>

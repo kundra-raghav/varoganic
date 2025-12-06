@@ -20,27 +20,22 @@ export type HeroProps = {
     readonly src: string
     readonly alt: string
   }
+  readonly productHighlight?: {
+    readonly description: string
+    readonly metrics: Array<{ title: string; value: string }>
+  }
 }
 
 /**
  * Homepage hero storytelling block with seasonal accents.
  */
-export const Hero = ({ eyebrow, headline, subcopy, primaryCta, secondaryCta, media }: HeroProps): ReactElement => {
+export const Hero = ({ eyebrow, headline, subcopy, primaryCta, secondaryCta, media, productHighlight }: HeroProps): ReactElement => {
   const reducedMotion = useUIStore((state) => state.reducedMotion)
   const heroAnchors = useMemo(
     () => [
-      { label: 'Zero parabens', accent: '100%' },
-      { label: 'Hand-blended weekly', accent: 'Fresh' },
-      { label: 'Plastic neutral deliveries', accent: '-42% waste' },
-    ],
-    [],
-  )
-
-  const microMetrics = useMemo(
-    () => [
-      { title: 'Rituals reserved today', value: '1,248' },
-      { title: 'Dermatologist approvals', value: '312' },
-      { title: 'Glow stories this week', value: '94%' },
+      { label: '100% Natural', accent: 'Pure' },
+      { label: 'Handmade Fresh', accent: 'Daily' },
+      { label: 'Chemical-Free', accent: 'Safe' },
     ],
     [],
   )
@@ -129,24 +124,26 @@ export const Hero = ({ eyebrow, headline, subcopy, primaryCta, secondaryCta, med
               aspectRatio="4 / 5"
             />
           </motion.div>
-          <motion.div
-            className="rounded-3xl border border-lines bg-paper p-5 text-left shadow-card"
-            initial={reducedMotion ? undefined : { opacity: 0, y: 16 }}
-            animate={reducedMotion ? undefined : { opacity: 1, y: 0, transition: { delay: 0.15, duration: 0.4, ease: 'easeOut' } }}
-          >
-            <p className="text-xs font-semibold uppercase tracking-wide text-muted">Why botanicals win</p>
-            <p className="mt-2 text-sm text-ink">
-              Cold-pressed rose, neem, and vitamin-rich oils stay alive in every jar. No synthetic parabens, no sulphates—only nature pressed into ritual form.
-            </p>
-            <div className="mt-4 grid gap-3 sm:grid-cols-3">
-              {microMetrics.map((metric) => (
-                <div key={metric.title} className="rounded-xl border border-lines/70 bg-paper px-3 py-2 text-center">
-                  <span className="block text-sm font-semibold text-primary">{metric.value}</span>
-                  <span className="text-[11px] uppercase tracking-wide text-muted">{metric.title}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+          {productHighlight ? (
+            <motion.div
+              className="rounded-3xl border border-lines bg-paper p-5 text-left shadow-card"
+              initial={reducedMotion ? undefined : { opacity: 0, y: 16 }}
+              animate={reducedMotion ? undefined : { opacity: 1, y: 0, transition: { delay: 0.15, duration: 0.4, ease: 'easeOut' } }}
+            >
+              <p className="text-xs font-semibold uppercase tracking-wide text-muted">Why Choose This</p>
+              <p className="mt-2 text-sm text-ink">
+                {productHighlight.description}
+              </p>
+              <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                {productHighlight.metrics.map((metric) => (
+                  <div key={metric.title} className="rounded-xl border border-lines/70 bg-paper px-3 py-2 text-center">
+                    <span className="block text-sm font-semibold text-primary">{metric.value}</span>
+                    <span className="text-[11px] uppercase tracking-wide text-muted">{metric.title}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          ) : null}
         </figure>
       </div>
     </motion.section>

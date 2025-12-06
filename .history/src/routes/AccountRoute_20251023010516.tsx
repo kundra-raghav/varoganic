@@ -13,7 +13,7 @@ export const AccountRoute = (): ReactElement => {
       <SEO title="My account" description="Access order history and refill your favourite rituals." path="/account" noindex />
       <h1 className="font-heading text-h2 text-ink">Account</h1>
       <p className="text-sm text-muted">
-        Account management is coming soon. Meanwhile, reach us at care@vorganic.shop for order support.
+        Account management is coming soon. Meanwhile, reach us at care@varoganic.shop for order support.
       </p>
     </div>
   )

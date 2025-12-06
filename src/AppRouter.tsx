@@ -14,9 +14,10 @@ const ShopRoute = lazy(async () => import('@/routes/ShopRoute').then((module) =>
 const NewRoute = lazy(async () => import('@/routes/NewRoute').then((module) => ({ default: module.NewRoute })))
 const BundlesRoute = lazy(async () => import('@/routes/BundlesRoute').then((module) => ({ default: module.BundlesRoute })))
 const IngredientsRoute = lazy(async () => import('@/routes/IngredientsRoute').then((module) => ({ default: module.IngredientsRoute })))
-const CartRoute = lazy(async () => import('@/routes/CartRoute').then((module) => ({ default: module.CartRoute })))
+// Temporarily commented out - customers shop on Flipkart
+// const CartRoute = lazy(async () => import('@/routes/CartRoute').then((module) => ({ default: module.CartRoute })))
 const ProductRoute = lazy(async () => import('@/routes/ProductRoute').then((module) => ({ default: module.ProductRoute })))
-const AccountRoute = lazy(async () => import('@/routes/AccountRoute').then((module) => ({ default: module.AccountRoute })))
+// const AccountRoute = lazy(async () => import('@/routes/AccountRoute').then((module) => ({ default: module.AccountRoute })))
 const AboutRoute = lazy(async () => import('@/routes/AboutRoute').then((module) => ({ default: module.AboutRoute })))
 const NotFoundRoute = lazy(async () => import('@/routes/NotFoundRoute').then((module) => ({ default: module.NotFoundRoute })))
 const ContentRoute = lazy(async () => import('@/routes/ContentRoute').then((module) => ({ default: module.ContentRoute })))
@@ -27,9 +28,9 @@ const routeMap: Record<string, LazyExoticComponent<() => ReactElement>> = {
   '/collections/new': NewRoute,
   '/collections/bundles': BundlesRoute,
   '/ingredients': IngredientsRoute,
-  '/cart': CartRoute,
+  // '/cart': CartRoute,  // Temporarily commented out - customers shop on Flipkart
   '/product': ProductRoute,
-  '/account': AccountRoute,
+  // '/account': AccountRoute,  // Temporarily commented out - customers shop on Flipkart
   '/about': AboutRoute,
   '/shop/all-products': ContentRoute,
   '/shop/new-arrivals': ContentRoute,
@@ -119,9 +120,10 @@ export const AppRouter = (): ReactElement => {
       <Suspense fallback={null}>
         <MobilePromoSheet />
       </Suspense>
-      <Suspense fallback={null}>
+      {/* Temporarily commented out - customers shop on Flipkart */}
+      {/* <Suspense fallback={null}>
         <MiniCart />
-      </Suspense>
+      </Suspense> */}
     </div>
   )
 }
@@ -145,7 +147,8 @@ const RouteSkeleton = (): ReactElement => {
     </div>
   )
 }
-const MiniCart = lazy(async () => import('@/components/commerce/MiniCart').then((module) => ({ default: module.MiniCart })))
+// Temporarily commented out - customers shop on Flipkart
+// const MiniCart = lazy(async () => import('@/components/commerce/MiniCart').then((module) => ({ default: module.MiniCart })))
 const MobilePromoSheet = lazy(async () =>
   import('@/components/layout/MobilePromoSheet').then((module) => ({ default: module.MobilePromoSheet })),
 )

@@ -40,7 +40,7 @@ const bundleDefinitions: Array<BundleDefinition> = [
     excerpt: 'A two-step balancing duo that purifies without stripping and recharges moisture reservoirs.',
     ritual: 'Morning shower + post-cleanse hydration',
     focus: 'Breakout-prone, urban skin needing gentle daily resetting.',
-    image: 'https://vorganic.shop/Gemini4.png',
+    image: 'https://images.unsplash.com/photo-1585238341986-00f1874d518e?auto=format&fit=crop&w=900&q=80',
     productIds: ['soap-neem', 'gel-hydrating'],
     perks: ['Tea tree + neem microbiome balancing', '12-hour hydration layer', 'Cooling gel texture for humid days'],
   },

@@ -1,10 +1,12 @@
-import { Search, ShoppingBag, UserRound } from 'lucide-react'
+import { Search } from 'lucide-react'
+// Temporarily commented out - customers shop on Flipkart
+// import { Search, ShoppingBag, UserRound } from 'lucide-react'
 import {
   useCallback,
   useEffect,
   useRef,
   useState,
-  useMemo,
+  // useMemo,  // Temporarily commented out - customers shop on Flipkart
   type MouseEvent,
   type ReactElement,
 } from 'react'
@@ -13,7 +15,8 @@ import { PRODUCTS } from '@/data/products'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { useReducedMotionSafe } from '@/hooks/useReducedMotionSafe'
 import { cn } from '@/lib/cn'
-import { useCartStore } from '@/store/cart'
+// Temporarily commented out - customers shop on Flipkart
+// import { useCartStore } from '@/store/cart'
 
 import { MegaMenu, type MegaMenuSection } from './MegaMenu'
 import { SearchBox } from './SearchBox'
@@ -92,8 +95,9 @@ export const Header = (): ReactElement => {
   const isMobile = useMediaQuery('(max-width: 767px)')
   const prefersReducedMotion = useReducedMotionSafe()
 
-  const { items } = useCartStore(); // Get items from cart store
-  const cartTotalQuantity = useMemo(() => items.reduce((total, item) => total + item.quantity, 0), [items]); // Calculate total quantity
+  // Temporarily commented out - customers shop on Flipkart
+  // const { items } = useCartStore(); // Get items from cart store
+  // const cartTotalQuantity = useMemo(() => items.reduce((total, item) => total + item.quantity, 0), [items]); // Calculate total quantity
 
   useEffect(() => {
     const handleScroll = (): void => {
@@ -230,7 +234,8 @@ export const Header = (): ReactElement => {
               <Search className="size-5" aria-hidden="true" />
             </button>
           )}
-          {!isMobile ? (
+          {/* Temporarily commented out - customers shop on Flipkart */}
+          {/* {!isMobile ? (
             <a
               href="/account"
               className="inline-flex items-center gap-2 rounded-full px-3 py-2 transition-colors hover:bg-primary/10 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
@@ -250,7 +255,7 @@ export const Header = (): ReactElement => {
                 {cartTotalQuantity}
               </span>
             )}
-          </a>
+          </a> */}
         </div>
       </div>
       <MegaMenu sections={megaMenuSections} open={megaOpen} onClose={closeMegaMenu} anchorRef={anchorRef} />

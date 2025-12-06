@@ -119,6 +119,31 @@ export const HomeRoute = (): ReactElement => {
   const activeStory = heroStories[activeStoryIndex]
   const activeProduct = activeStory.product!
 
+  // Create dynamic product highlight based on the active product
+  const productHighlight = useMemo(() => {
+    const keyIngredients = activeProduct.details?.keyIngredients?.slice(0, 2) || []
+    const ingredientNames = keyIngredients.map(ing => ing.name).join(', ') || 'natural ingredients'
+
+    const description = activeProduct.details?.tagline
+      || `Enriched with ${ingredientNames}. Handcrafted with traditional Ayurvedic methods for ${activeProduct.goals.slice(0, 2).join(' and ').toLowerCase()}.`
+
+    // Create metrics based on product benefits
+    const benefits = activeProduct.goals.slice(0, 3)
+    const metrics = benefits.map((benefit, index) => ({
+      title: benefit,
+      value: index === 0 ? '100%' : index === 1 ? 'Natural' : 'Safe'
+    }))
+
+    return {
+      description,
+      metrics: metrics.length > 0 ? metrics : [
+        { title: 'Natural', value: '100%' },
+        { title: 'Handmade', value: 'Fresh' },
+        { title: 'Chemical-Free', value: 'Safe' }
+      ]
+    }
+  }, [activeProduct])
+
   const heroContent = {
     eyebrow: activeStory.eyebrow,
     headline: activeStory.headline,
@@ -129,6 +154,7 @@ export const HomeRoute = (): ReactElement => {
       src: activeProduct.imageSrc,
       alt: activeProduct.imageAlt,
     },
+    productHighlight,
   }
 
   const heroWidths = [480, 720, 960, 1280] as const

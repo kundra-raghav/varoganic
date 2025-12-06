@@ -5,7 +5,7 @@ const SITE_URL = 'https://vorganic.shop'
 const DEFAULT_DESCRIPTION =
   'Organic, dermatologist-backed rituals from the Western Ghats. Discover cleansers, serums, and balms crafted for Indian skin.'
 const DEFAULT_OG_IMAGE =
-  'https://vorganic.shop/Gemini1.png'
+  'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1200&q=80'
 
 export type OpenGraphInput = {
   readonly title?: string
