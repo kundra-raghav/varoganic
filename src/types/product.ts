@@ -32,6 +32,7 @@ export type Product = {
   readonly reviewCount: number
   readonly imageSrc: string
   readonly imageAlt: string
+  readonly images?: Array<string>
   readonly badges?: Array<string>
   readonly links?: ProductLinks
   readonly details?: ProductDetails

@@ -223,8 +223,17 @@ export const SearchBox = ({ open, onClose }: SearchBoxProps): ReactElement | nul
             className="size-5 text-muted"
             fill="none"
           >
+            <circle
+              cx="11"
+              cy="11"
+              r="8"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
             <path
-              d="M11 5a6 6 0 1 1-4.243 10.243L4.5 17.5"
+              d="M21 21l-4.35-4.35"
               stroke="currentColor"
               strokeWidth="1.5"
               strokeLinecap="round"

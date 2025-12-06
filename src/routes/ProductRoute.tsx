@@ -28,12 +28,17 @@ const buildVariantOptions = (product: Product): Array<VariantOption> => {
   }))
 }
 
-const buildGallery = (product: Product): Array<{ id: string; src: string; alt: string }> =>
-  [product.imageSrc, `${product.imageSrc}&variant=1`, `${product.imageSrc}&variant=2`].map((src, index) => ({
+const buildGallery = (product: Product): Array<{ id: string; src: string; alt: string }> => {
+  const imageSources = product.images && product.images.length > 0
+    ? product.images
+    : [product.imageSrc, `${product.imageSrc}&variant=1`, `${product.imageSrc}&variant=2`]
+
+  return imageSources.map((src, index) => ({
     id: `${product.id}-image-${String(index)}`,
     src,
     alt: `${product.name} gallery view ${String(index + 1)}`,
   }))
+}
 
 const buildTabs = (product: Product): Array<{ id: string; label: string; content: ReactElement }> => {
   const tabs: Array<{ id: string; label: string; content: ReactElement }> = []

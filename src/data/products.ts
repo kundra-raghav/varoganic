@@ -1,5 +1,81 @@
 import type { Product } from '@/types/product'
 
+// Rose Soap Images
+import roseSoapMain from '@/assets/Rose Soap/Main Image.png'
+import roseSoap1 from '@/assets/Rose Soap/Soap Image.png'
+import roseSoap2 from '@/assets/Rose Soap/5.png'
+import roseSoap3 from '@/assets/Rose Soap/6.png'
+import roseSoap4 from '@/assets/Rose Soap/Ingerdients.png'
+import roseSoap5 from '@/assets/Rose Soap/Ingerdients (2).png'
+
+// Milky Kesar Soap Images
+import kesarSoap1 from '@/assets/Milky Kesar Soap/1.png'
+import kesarSoap2 from '@/assets/Milky Kesar Soap/2.png'
+import kesarSoap3 from '@/assets/Milky Kesar Soap/3.png'
+
+// De-Tan Soap Images
+import detanSoap1 from '@/assets/de-tan soap/1.png'
+import detanSoap2 from '@/assets/de-tan soap/3.png'
+import detanSoap3 from '@/assets/de-tan soap/4.png'
+import detanSoap4 from '@/assets/de-tan soap/5.png'
+import detanSoap5 from '@/assets/de-tan soap/6.png'
+import detanSoap6 from '@/assets/de-tan soap/7.png'
+
+// Lemon Honey Soap Images
+import lemonSoap1 from '@/assets/lemon soap/1.png'
+import lemonSoap2 from '@/assets/lemon soap/2.png'
+import lemonSoap3 from '@/assets/lemon soap/3.png'
+import lemonSoap4 from '@/assets/lemon soap/4.png'
+import lemonSoap5 from '@/assets/lemon soap/5.png'
+
+// Neem Soap Images
+import neemSoap1 from '@/assets/neem soap/1.png'
+import neemSoap2 from '@/assets/neem soap/2.png'
+import neemSoap3 from '@/assets/neem soap/3.png'
+import neemSoap4 from '@/assets/neem soap/5.png'
+
+// Skin Hydrating Gel Images
+import gelImage1 from '@/assets/Skin Hydrating Gel/41i6w0cmjeL.jpg'
+import gelImage2 from '@/assets/Skin Hydrating Gel/51irLAhWC7L.jpg'
+import gelImage3 from '@/assets/Skin Hydrating Gel/6136MxqNpOL.jpg'
+import gelImage4 from '@/assets/Skin Hydrating Gel/61S45uUrA9L._SL1084_.jpg'
+import gelImage5 from '@/assets/Skin Hydrating Gel/61WSjb4sIrL._SL1076_.jpg'
+import gelImage6 from '@/assets/Skin Hydrating Gel/61gBVg49PzL.jpg'
+import gelImage7 from '@/assets/Skin Hydrating Gel/61mqWhc1l1L.jpg'
+
+// Face Pack Images
+import packImage1 from '@/assets/face pack photos/1.png'
+import packImage2 from '@/assets/face pack photos/2.png'
+import packImage3 from '@/assets/face pack photos/3.png'
+import packImage4 from '@/assets/face pack photos/4.png'
+
+// Pure Glow Face Elixir Images
+import elixirImage1 from '@/assets/Pure Glow Face Elixir/1.png'
+import elixirImage2 from '@/assets/Pure Glow Face Elixir/2.png'
+import elixirImage3 from '@/assets/Pure Glow Face Elixir/3.png'
+import elixirImage4 from '@/assets/Pure Glow Face Elixir/4.png'
+import elixirImage5 from '@/assets/Pure Glow Face Elixir/5.png'
+
+// Rose Water Images
+import roseWater1 from '@/assets/Rose Water 1 2/1.png'
+import roseWater2 from '@/assets/Rose Water 1 2/2.png'
+import roseWater3 from '@/assets/Rose Water 1 2/3.png'
+import roseWater4 from '@/assets/Rose Water 1 2/4.png'
+import roseWater5 from '@/assets/Rose Water 1 2/5.png'
+
+// Varo Herbs Shampoo Images
+import shampoo1 from '@/assets/Varo-Herbs Shampoo/1.png'
+import shampoo2 from '@/assets/Varo-Herbs Shampoo/3.png'
+import shampoo3 from '@/assets/Varo-Herbs Shampoo/4.png'
+import shampoo4 from '@/assets/Varo-Herbs Shampoo/5.png'
+
+// Kesh Vaidya Hair Oil Images
+import hairOil1 from '@/assets/Kesh Vaidya Hair Oil/511x-rnpHIL.jpg'
+import hairOil2 from '@/assets/Kesh Vaidya Hair Oil/61SuKF+HeCL._SL1500_.jpg'
+import hairOil3 from '@/assets/Kesh Vaidya Hair Oil/71LBOlDUrOL._SL1500_.jpg'
+import hairOil4 from '@/assets/Kesh Vaidya Hair Oil/71bBnterCtL._SL1500_.jpg'
+import hairOil5 from '@/assets/Kesh Vaidya Hair Oil/81hDKbH88YL._SL1500_.jpg'
+
 const RAW_PRODUCTS = [
   {
     id: 'soap-rose',
@@ -17,7 +93,8 @@ const RAW_PRODUCTS = [
       'Improves Skin Texture',
       'Natural Glow',
     ],
-    image: 'https://i.ibb.co/My8Xx6X0/Main-Image.png',
+    image: roseSoapMain,
+    images: [roseSoapMain, roseSoap1, roseSoap2, roseSoap3, roseSoap4, roseSoap5],
     amazonLink: '',
     flipkartLink: 'https://www.flipkart.com/varoganic-rose-shower-soap-body-face-all-type-skin-100g/p/itm79ba428b2b58d?pid=SOPGZZD2H9VQFS6R&lid=LSTSOPGZZD2H9VQFS6RYH05N9&marketplace=FLIPKART&q=varoganic+rose+shower+soap&store=g9b%2F5nz%2Fb1b%2Fyug&srno=s_1_1&otracker=AS_Query_HistoryAutoSuggest_1_26_na_na_na&otracker1=AS_Query_HistoryAutoSuggest_1_26_na_na_na&fm=search-autosuggest&iid=b265f1a6-24b3-4671-b7b1-e6c21e007b4b.SOPGZZD2H9VQFS6R.SEARCH&ppt=sp&ppn=sp&ssid=xe2pephncg0000001765017150124&qH=32291af99d72feeb',
     details: {
@@ -107,7 +184,8 @@ const RAW_PRODUCTS = [
       'Smooth Texture',
       'Soothes Irritation',
     ],
-    image: 'https://i.ibb.co/67B4LfJ7/Milky-Kesar-Soap.png',
+    image: kesarSoap1,
+    images: [kesarSoap1, kesarSoap2, kesarSoap3],
     amazonLink: '',
     flipkartLink: 'https://www.flipkart.com/varoganic-milky-kesar-body-face-soap-all-type-skin-100g/p/itm575b451b2a67d?pid=SOPGZZD2WHQNGPPJ&lid=LSTSOPGZZD2WHQNGPPJPBOOH1&marketplace=FLIPKART&hl_lid=&q=Varoganic+&store=search.flipkart.com&_refId=&_appId=WA',
     details: {
@@ -210,7 +288,8 @@ const RAW_PRODUCTS = [
       'Controls Excess Oil',
       'Improves Skin Texture',
     ],
-    image: 'https://i.ibb.co/Qv0n5RKt/de-tan-soap-1.png',
+    image: detanSoap1,
+    images: [detanSoap1, detanSoap2, detanSoap3, detanSoap4, detanSoap5, detanSoap6],
     amazonLink:
       'https://www.amazon.in/VAROGANIC-Removes-combination-Chandan-Handmade/dp/B0D3QGPV4L/ref=sr_1_4?crid=8ZYA2YE8DS97&dib=eyJ2IjoiMSJ9.FlVoEC01TZiBOjb343XDWkGWN-fyx0KKV5juLhKwi2Bj6xdVDP3tF9LveVg3R13jFDpQ1cJZapFxNIDevyYo8OjMvnETsnM6UbXnvRlgJacLojRGxihOjKPiTIAc9lpx.lMAXRlowKAezq_T2C-rVfO8Bnf3ldX2PQ2kSWVVezGM&dib_tag=se&keywords=varoganic&nsdOptOutParam=true&qid=1758581105&s=beauty&sprefix=varogani%2Cbeauty%2C221&sr=1-4',
     flipkartLink: 'https://dl.flipkart.com/s/t5s42ZNNNN',
@@ -320,7 +399,8 @@ const RAW_PRODUCTS = [
       'Natural Glow',
       'Reduces Pigmentation',
     ],
-    image: 'https://i.ibb.co/kshV5Ygx/lemon-soap.png',
+    image: lemonSoap1,
+    images: [lemonSoap1, lemonSoap2, lemonSoap3, lemonSoap4, lemonSoap5],
     amazonLink: '',
     flipkartLink: 'https://www.flipkart.com/varoganic-herbal-glow-handmade-lemon-soap/p/itm1d59cc64974da?pid=SOPHGA9GHEJHFA2U&lid=LSTSOPHGA9GHEJHFA2UC5ASVX&marketplace=FLIPKART&hl_lid=&q=Varoganic+&store=search.flipkart.com&_refId=&_appId=WA',
     details: {
@@ -413,7 +493,8 @@ const RAW_PRODUCTS = [
       'Skin Purification',
       'Improves Clarity',
     ],
-    image: 'https://i.ibb.co/7JNVwKkn/neem-soap.png',
+    image: neemSoap1,
+    images: [neemSoap1, neemSoap2, neemSoap3, neemSoap4],
     amazonLink: '',
     flipkartLink: 'https://www.flipkart.com/varoganic-neem-soap/p/itmd8df3ce1f67c7?pid=SOPHGCGFNPXYAEAN&lid=LSTSOPHGCGFNPXYAEANL1IUPJ&marketplace=FLIPKART&hl_lid=&q=Varoganic+&store=search.flipkart.com&_refId=&_appId=WA',
     details: {
@@ -506,7 +587,8 @@ const RAW_PRODUCTS = [
       'Natural Glow',
       'Suitable for All Skin Types',
     ],
-    image: 'https://m.media-amazon.com/images/I/51irLAhWC7L.jpg',
+    image: gelImage1,
+    images: [gelImage1, gelImage2, gelImage3, gelImage4, gelImage5, gelImage6, gelImage7],
     amazonLink:
       'https://www.amazon.in/VarOrganics-Light-Hydrating-refreshing-Unisex/dp/B0D3PWGTPG/ref=sr_1_2?crid=8ZYA2YE8DS97&dib=eyJ2IjoiMSJ9.FlVoEC01TZiBOjb343XDWkGWN-fyx0KKV5juLhKwi2Bj6xdVDP3tF9LveVg3R13jFDpQ1cJZapFxNIDevyYo8OjMvnETsnM6UbXnvRlgJacLojRGxihOjKPiTIAc9lpx.lMAXRlowKAezq_T2C-rVfO8Bnf3ldX2PQ2kSWVVezGM&dib_tag=se&keywords=varoganic&nsdOptOutParam=true&qid=1758581105&s=beauty&sprefix=varogani%2Cbeauty%2C221&sr=1-2',
     flipkartLink: 'https://dl.flipkart.com/dl/varoganic-skin-hydrating-gel-clean-refreshing-moisturizes-tones-adds-radiance/p/itm0844caba43b17?pid=MSCGZ7V496BHWBYQ&lid=LSTMSCGZ7V496BHWBYQPKDY8O&marketplace=FLIPKART&hl_lid=&q=Varoganic+&store=search.flipkart.com&_refId=&_appId=WA',
@@ -609,7 +691,8 @@ const RAW_PRODUCTS = [
       'Natural Glow',
       'Firmer Skin',
     ],
-    image: 'https://m.media-amazon.com/images/I/41IEUQW6c0L.jpg',
+    image: packImage1,
+    images: [packImage1, packImage2, packImage3, packImage4],
     amazonLink:
       'https://www.amazon.in/Varoganic-Whitening-Tightening-Unisex-40gram/dp/B0D3QN7J9N/ref=sr_1_4?dib=eyJ2IjoiMSJ9.FlVoEC01TZiBOjb343XDWkGWN-fyx0KKV5juLhKwi2Bj6xdVDP3tF9LveVg3R13jFDpQ1cJZapFxNIDevyYo8OjMvnETsnM6UbXnvRlgJacLojRGxihOjKPiTIAc9lpx.lMAXRlowKAezq_T2C-rVfO8Bnf3ldX2PQ2kSWVVezGM&dib_tag=se&keywords=VAROGANIC&nsdOptOutParam=true&qid=1758581149&sr=8-4',
     flipkartLink: 'https://dl.flipkart.com/s/tV06dxNNNN',
@@ -704,7 +787,8 @@ const RAW_PRODUCTS = [
       'Soft Skin',
       'Natural Glow',
     ],
-    image: 'https://m.media-amazon.com/images/I/61HIPpnz8GL._SL1500_.jpg',
+    image: elixirImage1,
+    images: [elixirImage1, elixirImage2, elixirImage3, elixirImage4, elixirImage5],
     amazonLink:
       'https://www.amazon.in/Varoganic-Anti-Aging-Brightening-Chemical-Free-Paraben-Free/dp/B0DFWZMGYF/ref=sr_1_6?dib=eyJ2IjoiMSJ9.FlVoEC01TZiBOjb343XDWkGWN-fyx0KKV5juLhKwi2Bj6xdVDP3tF9LveVg3R13jFDpQ1cJZapFxNIDevyYo8OjMvnETsnM6UbXnvRlgJacLojRGxihOjKPiTIAc9lpx.lMAXRlowKAezq_T2C-rVfO8Bnf3ldX2PQ2kSWVVezGM&dib_tag=se&keywords=VAROGANIC&nsdOptOutParam=true&qid=1758581149&sr=8-6',
     flipkartLink: 'https://www.flipkart.com/search?q=varoganic+face+elixir',
@@ -814,7 +898,8 @@ const RAW_PRODUCTS = [
       'Soothes Irritation',
       'Makeup Prep',
     ],
-    image: 'https://m.media-amazon.com/images/I/71vCvk1UVmL._SL1080_.jpg',
+    image: roseWater1,
+    images: [roseWater1, roseWater2, roseWater3, roseWater4, roseWater5],
     amazonLink:
       'https://www.amazon.in/Varoganic-Radiant-chemical-extract-Product/dp/B0DFWX9K7H/ref=sr_1_5?dib=eyJ2IjoiMSJ9.FlVoEC01TZiBOjb343XDWkGWN-fyx0KKV5juLhKwi2Bj6xdVDP3tF9LveVg3R13jFDpQ1cJZapFxNIDevyYo8OjMvnETsnM6UbXnvRlgJacLojRGxihOjKPiTIAc9lpx.lMAXRlowKAezq_T2C-rVfO8Bnf3ldX2PQ2kSWVVezGM&dib_tag=se&keywords=VAROGANIC&nsdOptOutParam=true&qid=1758581149&sr=8-5',
     flipkartLink: 'https://dl.flipkart.com/s/g0PCTVuuuN',
@@ -887,7 +972,8 @@ const RAW_PRODUCTS = [
       'Strengthens Hair',
       'Chemical-Free',
     ],
-    image: 'https://m.media-amazon.com/images/I/51irLAhWC7L.jpg',
+    image: shampoo1,
+    images: [shampoo1, shampoo2, shampoo3, shampoo4],
     amazonLink: '',
     flipkartLink: 'https://www.flipkart.com/varoganic-shampoo1/p/itmd16bd65f65595?pid=SMPHBBBPA3AYKTNS&lid=LSTSMPHBBBPA3AYKTNS0G4ZV9&marketplace=FLIPKART&hl_lid=&q=Varoganic+&store=search.flipkart.com&_refId=&_appId=WA',
     details: {
@@ -1004,7 +1090,8 @@ const RAW_PRODUCTS = [
       'Nourishes Dry Hair',
       'Enhances Scalp Health',
     ],
-    image: 'https://m.media-amazon.com/images/I/51irLAhWC7L.jpg',
+    image: hairOil1,
+    images: [hairOil1, hairOil2, hairOil3, hairOil4, hairOil5],
     amazonLink: '',
     flipkartLink: 'https://www.flipkart.com/varoganic-kesh-vadya-hair-oil/p/itmc7f1be2591515?pid=HOLHY9FBBD4CX2FW&lid=LSTHOLHY9FBBD4CX2FWWJMWZ4&marketplace=FLIPKART&hl_lid=&q=Varoganic+&store=search.flipkart.com&_refId=&_appId=WA',
     details: {
@@ -1154,8 +1241,19 @@ const enrichProduct = (raw: (typeof RAW_PRODUCTS)[number], index: number): Produ
     reviewCount,
     imageSrc: raw.image,
     imageAlt: `${raw.name} hero image`,
+    images: raw.images ? [...raw.images] : undefined,
     badges: raw.category === 'Soap' ? ['Handmade'] : undefined,
     links: amazon || flipkart ? { amazon, flipkart } : undefined,
+    details: raw.details ? {
+      tagline: raw.details.tagline,
+      keyIngredients: raw.details.keyIngredients ? raw.details.keyIngredients.map(ing => ({
+        name: ing.name,
+        benefits: [...ing.benefits],
+      })) : undefined,
+      benefits: raw.details.benefits ? [...raw.details.benefits] : undefined,
+      howToUse: raw.details.howToUse ? [...raw.details.howToUse] : undefined,
+      whyChoose: raw.details.whyChoose ? [...raw.details.whyChoose] : undefined,
+    } : undefined,
   }
 }
 
