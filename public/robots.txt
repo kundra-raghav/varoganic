@@ -1,0 +1,5 @@
+# robots.txt generated for Varoganic Store
+User-agent: *
+Allow: /
+
+Sitemap: https://varoganic.shop/sitemap-static.xml

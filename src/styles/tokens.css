@@ -1,0 +1,129 @@
+/* Design tokens and seasonal theme packs powered by CSS custom properties */
+
+:root {
+  color-scheme: light;
+
+  /* Color palette */
+  --color-primary: 47 109 78;
+  --color-primary-hover: 37 88 66;
+  --color-on-primary: 255 255 255;
+
+  --color-accent: 255 182 83;
+  --color-accent-strong: 228 138 41;
+
+  --color-ink: 26 29 27;
+  --color-body: 42 46 43;
+  --color-muted: 108 116 111;
+  --color-lines: 230 236 232;
+  --color-paper: 250 252 249;
+
+  --color-success: 47 122 79;
+  --color-info: 31 111 235;
+  --color-warning: 185 106 0;
+  --color-error: 176 0 32;
+
+  --color-focus-ring: 31 111 235;
+
+  /* Typography scale (font-size / line-height) */
+  --font-size-h1: 2.5rem;
+  --line-height-h1: 3rem;
+
+  --font-size-h2: 1.75rem;
+  --line-height-h2: 2.25rem;
+
+  --font-size-h3: 1.375rem;
+  --line-height-h3: 1.75rem;
+
+  --font-size-body: 1rem;
+  --line-height-body: 1.5rem;
+
+  --font-size-small: 0.875rem;
+  --line-height-small: 1.25rem;
+
+  /* 8pt spacing scale */
+  --space-2: 0.125rem;
+  --space-4: 0.25rem;
+  --space-8: 0.5rem;
+  --space-12: 0.75rem;
+  --space-16: 1rem;
+  --space-24: 1.5rem;
+  --space-32: 2rem;
+  --space-40: 2.5rem;
+  --space-48: 3rem;
+  --space-64: 4rem;
+  --space-80: 5rem;
+
+  /* Radius tokens */
+  --radius-xs: 0.125rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-pill: 9999px;
+
+  /* Effects */
+  --shadow-card: 0 8px 12px rgba(26, 29, 27, 0.08);
+  --focus-ring-shadow: 0 0 0 2px rgba(250, 252, 249, 0.9), 0 0 0 4px rgba(31, 111, 235, 0.7);
+  --accent-gradient: linear-gradient(135deg, rgba(255, 182, 83, 1) 0%, rgba(228, 138, 41, 1) 100%);
+  --surface-confetti: none;
+
+  /* High-contrast guidance (WCAG compliant pairs)
+     - Primary (#2F6D4E) on Paper (#FAFCF9) ≈ 5.0:1 for interactive fills.
+     - Body text (#2A2E2B) on Paper (#FAFCF9) ≈ 11.5:1 for paragraphs.
+     - On-primary (#FFFFFF) on Primary (#2F6D4E) ≈ 7.3:1 for buttons.
+     - Muted (#6C746F) on Paper (#FAFCF9) ≈ 3.6:1 — reserve for ≥18pt or bold text. */
+}
+
+html[data-theme='marigold'] {
+  --color-accent: 255 159 28;
+  --color-accent-strong: 240 104 0;
+  --accent-gradient: linear-gradient(135deg, rgba(255, 159, 28, 1) 0%, rgba(240, 104, 0, 1) 100%);
+  --surface-confetti: radial-gradient(circle at 20% 20%, rgba(255, 159, 28, 0.1) 0, transparent 45%),
+    radial-gradient(circle at 65% 30%, rgba(240, 104, 0, 0.12) 0, transparent 50%);
+}
+
+html[data-theme='gulal'] {
+  --color-accent: 245 94 144;
+  --color-accent-strong: 255 191 0;
+  --accent-gradient: linear-gradient(135deg, rgba(245, 94, 144, 1) 0%, rgba(255, 191, 0, 1) 100%);
+  --surface-confetti: radial-gradient(circle at 10% 20%, rgba(245, 94, 144, 0.14) 0, transparent 40%),
+    radial-gradient(circle at 80% 15%, rgba(255, 191, 0, 0.12) 0, transparent 46%),
+    radial-gradient(circle at 50% 80%, rgba(148, 231, 225, 0.08) 0, transparent 55%);
+}
+
+html[data-theme='neem'] {
+  --color-primary: 36 103 92;
+  --color-primary-hover: 28 83 74;
+  --color-accent: 120 193 174;
+  --color-accent-strong: 63 148 131;
+  --accent-gradient: linear-gradient(145deg, rgba(120, 193, 174, 1) 0%, rgba(63, 148, 131, 1) 100%);
+  --surface-confetti: radial-gradient(circle at 35% 30%, rgba(120, 193, 174, 0.12) 0, transparent 45%),
+    radial-gradient(circle at 70% 60%, rgba(63, 148, 131, 0.1) 0, transparent 50%);
+}
+
+/* Utility classes backed by tokens */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.focus-outline {
+  position: relative;
+}
+
+.focus-outline:focus-visible {
+  outline: 2px solid rgb(var(--color-focus-ring));
+  outline-offset: 2px;
+  box-shadow: var(--focus-ring-shadow);
+}
+
+.card-shadow {
+  box-shadow: var(--shadow-card);
+}

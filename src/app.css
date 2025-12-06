@@ -1,0 +1,172 @@
+@import './styles/tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    min-height: 100%;
+    background-color: rgb(var(--color-paper));
+    color: rgb(var(--color-body));
+    font-family: 'Inter', 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    font-synthesis: none;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    min-height: 100%;
+    margin: 0;
+    background-color: rgb(var(--color-paper));
+    color: rgb(var(--color-body));
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: rgb(var(--color-ink));
+    font-family: 'Playfair Display', 'Fraunces', 'Inter', 'Manrope', serif;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: rgb(var(--color-accent));
+    text-decoration: none;
+    transition: color 150ms ease;
+  }
+
+  a:hover {
+    color: rgb(var(--color-accent-strong));
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--color-focus-ring));
+    outline-offset: 2px;
+    box-shadow: var(--focus-ring-shadow);
+  }
+
+  ::selection {
+    background-color: rgb(var(--color-primary) / 0.24);
+    color: rgb(var(--color-on-primary));
+  }
+}
+
+@layer utilities {
+  .bg-accent-gradient {
+    background-image: var(--accent-gradient);
+  }
+
+  .bg-confetti {
+    background-image: var(--surface-confetti);
+  }
+
+  .animate-modal-fade {
+    animation: modal-fade 180ms ease-out both;
+  }
+
+  .animate-modal-scale {
+    animation: modal-scale 200ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .animate-drawer-left {
+    animation: drawer-slide-left 200ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .animate-drawer-right {
+    animation: drawer-slide-right 200ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .animate-drawer-up {
+    animation: drawer-slide-up 200ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+
+@keyframes modal-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-scale {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes drawer-slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes drawer-slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes drawer-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
