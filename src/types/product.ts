@@ -6,6 +6,19 @@ export type ProductLinks = {
   readonly flipkart?: string
 }
 
+export type Ingredient = {
+  readonly name: string
+  readonly benefits: Array<string>
+}
+
+export type ProductDetails = {
+  readonly tagline?: string
+  readonly keyIngredients?: Array<Ingredient>
+  readonly benefits?: Array<string>
+  readonly howToUse?: Array<string>
+  readonly whyChoose?: Array<string>
+}
+
 export type Product = {
   readonly id: string
   readonly name: string
@@ -21,6 +34,7 @@ export type Product = {
   readonly imageAlt: string
   readonly badges?: Array<string>
   readonly links?: ProductLinks
+  readonly details?: ProductDetails
 }
 
 export type ProductCollection = {

@@ -21,6 +21,8 @@ export type AddToCartButtonProps = {
   readonly variantId?: string
   readonly label?: string
   readonly className?: string
+  readonly variant?: 'primary' | 'secondary' | 'tertiary'
+  readonly size?: 'sm' | 'md' | 'lg'
 }
 
 /**
@@ -32,6 +34,8 @@ export const AddToCartButton = ({
   label = 'Add to cart',
   variantId,
   className,
+  variant = 'primary',
+  size = 'md',
 }: AddToCartButtonProps): ReactElement => {
   const [isAdding, setIsAdding] = useState(false)
   const [showSparkle, setShowSparkle] = useState(false)
@@ -91,7 +95,7 @@ export const AddToCartButton = ({
   }
 
   return (
-    <Button onClick={handleClick} loading={isAdding} className={cn('relative w-full overflow-hidden', className)}>
+    <Button onClick={handleClick} loading={isAdding} variant={variant} size={size} className={cn('relative w-full overflow-hidden', className)}>
       <span className="relative z-10">{isAdding ? 'Added' : label}</span>
       <AnimatePresence>
         {showSparkle && !reducedMotion ? (

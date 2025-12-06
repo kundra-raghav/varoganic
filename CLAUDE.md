@@ -99,11 +99,12 @@ Query client configuration (in `AppProviders.tsx`):
 ### Purchase Flow
 
 The application **does not process payments internally**. Instead:
-- Product pages show "Buy Now on Flipkart/Amazon" buttons that open external marketplace links in new tabs
+- Product pages show "Buy Now on Flipkart" buttons that open the product's Flipkart link in a new tab
+- The button ONLY appears if the product has a valid `flipkartLink` (Amazon links are ignored)
 - Cart page has a "Shop on Flipkart" button that redirects to the Flipkart store search
 - The cart functionality is preserved for browsing and product comparison only
-- Each product in `src/data/products.ts` includes `amazonLink` and `flipkartLink` fields
-- The Buy Now button prioritizes Flipkart links, falling back to Amazon if Flipkart is unavailable
+- Each product in `src/data/products.ts` includes `flipkartLink` field (currently set to Flipkart search URLs as placeholders)
+- **Important**: Replace placeholder Flipkart search URLs with actual product listing URLs when available
 
 ### Design System
 
